@@ -27,15 +27,33 @@
             filter: drop-shadow(0px -10px 4px #000000);
 
         }
+        .columnContainer .logo{
+            text-align: right;
+            padding-right: 60px;
+        }
+        .canvasCon{
+            width: 50%;
+        }
+        @media (max-width: 768px) {
+            .canvasCon{
+                display: none;
+            }
+            .columnContainer{
+                width: 100%;
+                padding-left: 10%;
+            }
+        }
     </style>
 </head>
 
 <body class="mainContainer">
-<div style="width:50%;">
+<div class="canvasCon">
     <canvas id="myCanvas"></canvas>
 </div>
 <div class="columnContainer">
-    <img src="../image/logo1.png" width="240px" height="93px" style="margin-left:60%;"/>
+    <div class="logo">
+        <img src="../image/logo1.png" width="240px" height="93px"/>
+    </div>
     <div style="background-color: #485b62;width:75%;height: 80%;margin-top: 50px;">
         <p style="font-size:40px;font-family: Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif';font-weight: bold;margin-top:30px;text-align: center;color: #272a39;">
             Email Interests:</p>
