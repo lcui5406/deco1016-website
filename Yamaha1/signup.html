@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge;charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <!--SignUp Page-->
+    <title>Sign us, and become a Yamaha user</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/signup.css" type="text/css"/>
+</head>
+
+<body class="mainContainer">
+<!--Define the left canvas space for the "step instruction"-->
+<div style="width:50%;">
+    <canvas id="myCanvas"></canvas>
+</div>
+<!--Right space for the SignUp page-->
+<div class="columnContainer">
+    <img src="image/logo1.png" width="240px" height="93px" style="margin-left:60%;"/>
+    <div style="background-color: #485b62;width:80%;margin-top: 50px;padding:15px;">
+        <p style="font-size:40px;color:#272a39;text-align: center;margin-top: 0px;">My Yamaha is for You!</p>
+        <p style="font-size:20px;margin-top:30px;">Become a member of "My Yamaha" and have access to exclusive member
+            benefits:</p>
+        <p style="font-size:20px;margin-top:40px;">-Create & Save accessorized Yamaha vehicles</p>
+        <p style="font-size:20px;margin-top:40px;"> -Have got 10%off for your first Yamaha!</p>
+        <p style="font-size:20px;margin-top:40px;">-You can upgrade your vehical for free</p>
+        <p style="font-size:20px;margin-top:40px;">-Get a free trial ride</p>
+        <p style="font-size:20px;margin-top:40px;">-PLUS much more.....</p>
+        <div class="Next"><a href="signUp/Step2.html" style="color:#f03013;">Next</a></div>
+        
+    </div>
+</div>
+<script type="text/javascript">
+    window.onload = function () {
+        watchChangeSize();
+    }
+    window.onresize = function () {
+        watchChangeSize();
+    }
+
+    function watchChangeSize() {
+        function draw(ctx1, url1, x, y, w, h) {
+            var temp = new Image();
+            temp.src = url1;
+            console.log(url1);
+            temp.onload = function () {
+                console.log("OK");
+                ctx1.drawImage(temp, x, y, w, h);
+            }
+        }
+//Draw the left steps flow
+      //Adjust the size for the whole canvas
+        var wid = 0.5 * (window.innerWidth);
+        var hei = window.innerHeight;
+        document.querySelector('#myCanvas').width = wid;
+        document.querySelector('#myCanvas').height = wid;
+
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+        
+
+        ctx.moveTo(0.5 * wid, 0);
+        ctx.lineWidth = 5;
+        ctx.lineTo(0.5 * wid, hei);
+        ctx.stroke();
+        var size=0.2*wid+"px ";
+        var size= 0.05*hei+"px ";
+	    ctx.font=size+ "Arial bold";
+	    ctx.fillStyle="#52685e";
+        ctx.fillText("Instructions",0.15 * wid, 0.20 * hei, 0.28 * wid, 0.20 * wid);
+        ctx.fillText("Personal Details", 0.55 * wid, 0.50 * hei, 0.30 * wid, 0.20 * wid);
+        ctx.fillText("Interests aspects",0.15 * wid, 0.7 * hei, 0.30 * wid, 0.20 * wid);
+
+
+    //Hook for each step
+        draw(ctx, "image/check.png", 0.53 * wid, 0.1 * hei, 100, 100);
+    }
+</script>
+</body>
+</html>

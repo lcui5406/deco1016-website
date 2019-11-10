@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge;charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Sign us, and become a Yamaha user</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <style>
+        html, body {
+            margin:0px;
+            padding: 0px;
+            background-color: #272a39;
+        }
+        .mainContainer {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .columnContainer {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            height: 150%;
+            filter: drop-shadow(0px -10px 4px #000000);
+
+        }
+    </style>
+</head>
+
+<body class="mainContainer">
+<div style="width:50%;">
+    <canvas id="myCanvas"></canvas>
+</div>
+<div class="columnContainer">
+    <img src="../image/logo1.png" width="240px" height="93px" style="margin-left:60%;"/>
+    <div style="background-color: #485b62;width:75%;height: 80%;margin-top: 50px;">
+        <p style="font-size:40px;font-family: Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif';font-weight: bold;margin-top:30px;text-align: center;color: #272a39;">
+            Email Interests:</p>
+        <p style="font-size:25px;font-family: Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif';font-weight: bold;margin-top:20px;margin-left:10px;color: #b98a57;">
+                If you are interested in any of the following aspects, we will send you an email if there is any new information.</p>
+        <form action="#" method="get">
+            <p><input type="checkbox" name="vehicle" value="1" style="margin-top:60px;margin-left: 20px;"/>Motor-Supermotor</p>
+            <p><input type="checkbox" name="vehicle" value="2" style="margin-top:60px;margin-left: 20px;"/> Motor-Officers</p>
+            <p><input type="checkbox" name="vehicle" value="3" style="margin-top:60px;margin-left: 20px;"/> Motor-FlyingInTheSky</p>
+           <!--link to the endpoint page-->
+            <a href="../mptor/success.html"
+               style="font-size:30px;text-decoration: underline;margin-left:70%;color:#f03013;">Submit</a>
+        </form>
+
+    </div>
+</div>
+<script type="text/javascript">
+    window.onload = function () {
+        watchChangeSize();
+    }
+    window.onresize = function () {
+        watchChangeSize();
+    }
+
+    function watchChangeSize() {
+        function draw(ctx1, url1, x, y, w, h) {
+//Use Javascript to draw the "Steps flow"
+            var temp = new Image();
+            temp.src = url1;
+            console.log(url1);
+            temp.onload = function () {
+                console.log("OK");
+                ctx1.drawImage(temp, x, y, w, h);
+            }
+        }
+
+        //Draw the left steps flow
+      //Adjust the size for the whole canvas
+      var wid = 0.5 * (window.innerWidth);
+        var hei = window.innerHeight;
+        document.querySelector('#myCanvas').width = wid;
+        document.querySelector('#myCanvas').height = wid;
+
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+        
+
+        ctx.moveTo(0.5 * wid, 0);
+        ctx.lineWidth = 5;
+        ctx.lineTo(0.5 * wid, hei);
+        ctx.stroke();
+        var size=0.2*wid+"px ";
+        var size= 0.05*hei+"px ";
+	    ctx.font=size+ "Arial bold";
+	    ctx.fillStyle="#52685e";
+        ctx.fillText("Instructions",0.15 * wid, 0.20 * hei, 0.28 * wid, 0.20 * wid);
+        ctx.fillText("Personal Details", 0.55 * wid, 0.50 * hei, 0.30 * wid, 0.20 * wid);
+        ctx.fillText("Interests aspects",0.15 * wid, 0.70 * hei, 0.30 * wid, 0.20 * wid);
+
+        draw(ctx, "../image/check.png", 0.53 * wid, 0.08 * hei, 100, 100);
+        draw(ctx, "../image/check.png", 0.33 * wid, 0.4 * hei, 100, 100);
+    }
+
+
+</script>
+</body>
+</html>

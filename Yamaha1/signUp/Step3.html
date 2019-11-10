@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge;charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Sign us, and become a Yamaha user</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/signup.css" type="text/css"/>
+</head>
+<!--Define the right details input-->
+<body class="mainContainer">
+<div style="width:50%;">
+    <canvas id="myCanvas"></canvas>
+</div>
+<div class="columnContainer">
+    <img src="../image/logo1.png" width="240px" height="93px" style="margin-left:60%;"/>
+    <div style="background-color: #485b62;width:75%;margin-top: 50px;padding:10px;">
+        <p style="font-size:25px;font-family: Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif';font-weight: bold;margin-top:30px;">
+            Country</p>
+        <input/>
+        <p style="font-size:25px;font-family: Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif';font-weight: bold;margin-top:30px;">
+            Postcode</p>
+        <input/>
+        <p style="font-size:25px;font-family: Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif';font-weight: bold;margin-top:30px;">
+            Address Line 1</p>
+        <input/>
+        <p style="font-size:25px;font-family: Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif';font-weight: bold;margin-top:30px;">
+            Address Line 2</p>
+        <input/>
+        <p style="font-size:25px;font-family: Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif';font-weight: bold;margin-top:30px;">
+            Suburb/City</p>
+        <input/>
+        <!--Next button-->
+        <div class="Next"><a href="Step4.html" style="color: red;">Next</a></div>
+        
+    </div>
+</div>
+
+<script type="text/javascript">
+    window.onload = function () {
+        watchChangeSize();
+    }
+//Use Javascript to draw the "Steps flow"
+    window.onresize = function () {
+        watchChangeSize();
+    }
+
+    function watchChangeSize() {
+        function draw(ctx1, url1, x, y, w, h) {
+            var temp = new Image();
+            temp.src = url1;
+            console.log(url1);
+            temp.onload = function () {
+                console.log("OK");
+                ctx1.drawImage(temp, x, y, w, h);
+            }
+        }
+
+       //Draw the left steps flow
+      //Adjust the size for the whole canvas
+      var wid = 0.5 * (window.innerWidth);
+        var hei = window.innerHeight;
+        document.querySelector('#myCanvas').width = wid;
+        document.querySelector('#myCanvas').height = wid;
+
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+        
+
+        ctx.moveTo(0.5 * wid, 0);
+        ctx.lineWidth = 5;
+        ctx.lineTo(0.5 * wid, hei);
+        ctx.stroke();
+        var size=0.2*wid+"px ";
+        var size= 0.05*hei+"px ";
+	    ctx.font=size+ "Arial bold";
+	    ctx.fillStyle="#52685e";
+        ctx.fillText("Instructions",0.15 * wid, 0.20 * hei, 0.28 * wid, 0.20 * wid);
+        ctx.fillText("Personal Details", 0.55 * wid, 0.50 * hei, 0.30 * wid, 0.20 * wid);
+        ctx.fillText("Interests aspects",0.15 * wid, 0.70 * hei, 0.30 * wid, 0.20 * wid);
+
+        draw(ctx, "../image/check.png", 0.53 * wid, 0.08 * hei, 100, 100);
+        draw(ctx, "../image/check.png", 0.33 * wid, 0.4 * hei, 100, 100);
+    }
+
+
+</script>
+</body>
+</html>

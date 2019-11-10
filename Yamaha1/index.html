@@ -1,0 +1,166 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>YAMAHA MOTORCYCLES</title>
+	<link rel="stylesheet" href="css/index.css" type="text/css"/>
+	
+</head>
+	
+
+	
+<body>
+	<!--This is navigation bar-->
+	<ul class="nav" style="overflow: hidden;">		
+			<li><a class="on" href="#">Home</a></li>
+			<li><a href="#">Product</a></li>
+			<li><a href="#">Video</a></li>
+			<li><a href="#">Contact</a></li>
+	</ul>
+	
+	<!--section 1-->
+	<div style="animation: key 3s;">
+	<div class="tran"> 
+	    <b> 
+		<font face="Malgun Gothic Semilight"> 
+			<a class="a" href="signUp/Step2.html">create your Yamaha</a>
+		</font>
+		</b>
+    	<p></p>
+	    <b> <font face="Malgun Gothic Semilight"> 
+			<a class="a" href="#">
+			<span style="text-decoration: none;"> <font color="#485b6">OR </font></span>Join us!<span style="text-decoration: none">
+		</b> 
+	</div>
+	
+	<div class="main-Container">
+	  <div class="row-display">
+			<img class="image1" src="image/Yamaha1.png"/>
+			<img class="image2" src="image/Yamaha2.png"/>
+			<img class="image3" src="image/Yamaha-3.png"/>
+	  </div>
+	</div>
+	
+	<img border="0" src="image/logo1.png"  width="30%" height="11.2%" align="right" style="transform:rotate(-15deg);margin-top:-30px;margin-right:100px;z-index: 90;"/>
+	
+	</div>
+	<!--section 2-->
+	<canvas id="myCanvas" style="margin-top:20px;animation: key 2s;"></canvas>
+	
+	<!--section 3-->
+	<div class="row-display" style="margin-left:30px;width:100%;animation: new 1s;">
+		<div class="column-display" style="width:40%;">
+			<p style="font-size:15px;margin-left:50px;">(Petroaviov,2019)</p>
+			<img src="image/show(6).jpg" width="60%" height="auto" style="margin-left:20%;box-shadow: 20px black;"/>
+		</div>
+		<div class="column-display" style="width:60%;overflow:hidden;">
+			<b class="title">Go on and own your Yamaha!</b>
+			<p class="Your">Your Email:</p>
+			<input type="email" autocomplete="off"/>
+			<button onClick="javascrtpt:window.location.href='signup.html'">Sign up</button>
+			
+			<b class="title2">Welcome to Yamaha.</b>		
+		</div>
+	</div>
+	
+	<!--footer-->
+	<div class="row-display">
+		<img src="image/twitter.png" width="50px" height="auto" style="margin-left:50px;">
+		<img src="image/facebook.png" width="50px" height="auto" style="margin-left:50px;">
+		<strong style="margin-left:10%;font-size:100%;width:30%;">Terms &amp; Conditions</strong>
+		<strong style="margin-left:2%;">|</strong>
+		<strong style="margin-left:2%;font-size:100%;width:30%;">Terms of Use</strong>
+		<strong style="margin-left:2%;">|</strong>
+		<strong style="margin-left:2%;font-size:100%;width:30%;">Private Policy</strong>
+		<strong style="margin-left:2%;">|</strong>
+		<strong style="margin-left:2%;font-size:100%;width:30%;">Site Map</strong>
+	</div>	
+</body>
+
+	
+<script type="text/javascript">
+//Adapt the size of text and pictures to the screen when users are adjusting the website size. 
+	window.onload=function(){
+		watchChangeSize();
+	}
+	window.onresize=function(){
+		watchChangeSize();
+	}
+	function watchChangeSize(){
+		function draw(ctx1,url1,x,y,w,h){
+			ctx1.shadowBlur=20;
+			ctx1.shadowColor="black";
+			var temp=new Image();
+			temp.src=url1;
+			console.log(url1);
+			temp.onload=function(){
+				console.log("OK");
+				ctx1.drawImage(temp,x,y,w,h);
+			}
+		}
+    //Select the section2 element in HTML
+	var wid=window.innerWidth;
+	var hei=wid*0.6;
+	document.querySelector('#myCanvas').width = wid;
+	document.querySelector('#myCanvas').height=0.563*wid;
+
+	var c=document.getElementById("myCanvas");
+	var ctx=c.getContext("2d");
+    //Size for the imaegs
+	draw(ctx,"image/logo2.png",0.04*wid,0.05*hei,0.15*wid,0.4*hei);
+	draw(ctx,"image/show(4).jpg",0.27*wid,20,0.2*wid,0.3*wid);
+	draw(ctx,"image/show(1).jpg",0.57*wid,20,0.23*wid,0.15*wid);
+	draw(ctx,"image/show(9).jpg",0,0.46*hei,0.25*wid,0.3*hei);
+	draw(ctx,"image/show(5).jpg",0.55*wid,0.52*hei,0.18*wid,0.5*hei);
+	draw(ctx,"image/show(2).jpg",0.8*wid,0.33*hei,0.2*wid,0.27*hei);
+
+
+	//Size for the small reference
+	ctx.shadowBlur=0;
+	var size=0.01*wid+"px ";
+	ctx.font=size+ "Arial bold";
+	ctx.fillStyle="#b98a57";
+	ctx.fillText("(SUNRISE，2019)",0,0.78*hei);
+	ctx.fillText("(logo,2019)",0.18*wid,0.4*hei);
+	ctx.fillText("(Joe,2019)",0.47*wid,40);
+	ctx.fillText("(Neric,2019)",0.47*wid,0.90*hei);
+	ctx.fillText("(Conor Luddy,2019)",0.80*wid,40);
+	ctx.textAlign="end";
+	ctx.fillText("(Caron Dawe,2019)",0.99*wid,0.62*hei);
+	ctx.textAlign="start";
+	//Size for titles
+	size=0.017*wid+"px ";
+	ctx.font=size+"Arial bold";
+	ctx.fillText("EPIC MOTOGP SPIRIT",0.5*wid,0.34*hei);
+	ctx.fillText("YZF-R6",0.74*wid,0.8*hei);
+	ctx.textAlign="end";
+	ctx.fillText("YZF-R1M",0.52*wid,0.61*hei);
+	ctx.textAlign="start";
+	
+    //Size for the main comtent
+	size=0.010*wid+"px ";
+	ctx.font=size+"Arial bold";
+	ctx.fillText("Featuring bodywork and graphics inspired by",0.5*wid,0.32*hei+60);
+	ctx.fillText("the MotoGP race team, this Limited Edition",0.5*wid,0.32*hei+74);
+	ctx.fillText("is sleeker and more refined than ever before.",0.5*wid,0.32*hei+90);
+
+	ctx.textAlign="end";
+	ctx.fillText("The new 2020 YAF-R1M",0.52*wid,0.58*hei+60);
+	ctx.fillText("will initially be available in",0.52*wid,0.58*hei+76);
+	ctx.fillText("limited quantities",0.52*wid,0.58*hei+92);
+	ctx.fillText("exclusively through",0.52*wid,0.58*hei+107);
+	ctx.fillText("Yamaha's online",0.52*wid,0.58*hei+123);
+	ctx.fillText("reservation system.",0.52*wid,0.58*hei+139);
+	ctx.textAlign="start";
+
+	ctx.fillText("Unchallenged supersport",0.74*wid,0.8*hei+30);
+	ctx.fillText("dominance with iconic design",0.74*wid,0.8*hei+45);
+	ctx.fillText("and a proven AMA",0.74*wid,0.8*hei+60);
+	ctx.fillText("Championship winning track record.",0.74*wid,0.8*hei+75);
+	}
+
+
+</script>
+	
+</html>
+
